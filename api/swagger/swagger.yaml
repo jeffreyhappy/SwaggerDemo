@@ -49,12 +49,15 @@ definitions:
   HelloWorldResponse:
     required:
       - message
-      - name2
+      - name
+      - age
     properties:
       message:
         type: string
-      name2:
+      name:
         type: string
+      age:
+        type: number
 
   ErrorResponse:
     required:

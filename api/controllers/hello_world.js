@@ -45,5 +45,5 @@ function hello(req, res) {
   }
 
   // this sends back a JSON response which is a single string
-  res.json(JSON.stringify(helloRet));
+  res.json(helloRet);
 }
