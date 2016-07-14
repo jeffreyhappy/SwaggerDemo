@@ -42,6 +42,34 @@ paths:
           description: Error
           schema:
             $ref: "#/definitions/ErrorResponse"
+  /login:
+    x-swagger-router-controller: login
+    get:
+      description: 登录
+      operationId: login
+      parameters:
+        - name: userName
+          in: query
+          description: 用户名
+          required: true
+          type: string
+        - name: password
+          in: query
+          description: 密码
+          required: true
+          type: string
+      responses:
+        "200":
+          description: Success
+          schema:
+            # a pointer to a definition
+            $ref: "#/definitions/LoginResponse"
+        # responses may fall through to errors
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+  
   /swagger:
     x-swagger-pipe: swagger_raw
 # complex objects have schema definitions
@@ -58,6 +86,38 @@ definitions:
         type: string
       age:
         type: number
+        
+  LoginResponse:
+    required:
+      - errMsg
+      - errCode
+      - data
+    properties:
+      errMsg:
+        type: string
+      errCode:
+        type: string
+      data:
+        type: object
+        properties: 
+              userName: 
+                type: "string"
+                description: "用户名"
+              user_id: 
+                type: "string"
+                description: "用户id"
+              token: 
+                type: "string"
+                description: "用户token"
+              verify: 
+                type: "string"
+                description: "用户名verify"
+              user_mobile: 
+                type: "string"
+                description: "用户手机号"
+              photo_url: 
+                type: "string"
+                description: "用户头像"
 
   ErrorResponse:
     required:
