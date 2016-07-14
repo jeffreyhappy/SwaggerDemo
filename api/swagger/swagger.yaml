@@ -17,6 +17,7 @@ consumes:
 # format of the responses to the client (Accepts)
 produces:
   - application/json
+  - text/plain
 paths:
   /hello:
     # binds a127 app logic to a route
